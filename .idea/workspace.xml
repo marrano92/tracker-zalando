@@ -180,7 +180,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Makefile.start">
+  <component name="RunManager" selected="Makefile.stop">
     <configuration name="build-dev" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/makefile" target="build-dev" workingDirectory="" arguments="">
         <envs />
@@ -217,8 +217,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile.start" />
         <item itemvalue="Makefile.stop" />
+        <item itemvalue="Makefile.start" />
         <item itemvalue="Makefile.migrate" />
         <item itemvalue="Makefile.build-dev" />
         <item itemvalue="Makefile.refresh" />
@@ -238,7 +238,9 @@
       <workItem from="1610904767682" duration="202000" />
       <workItem from="1610904972361" duration="17959000" />
       <workItem from="1610987155866" duration="1972000" />
-      <workItem from="1610989182962" duration="15749000" />
+      <workItem from="1610989182962" duration="18586000" />
+      <workItem from="1611159710430" duration="2173000" />
+      <workItem from="1611612459760" duration="2703000" />
     </task>
     <servers />
   </component>

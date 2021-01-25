@@ -36,14 +36,26 @@ class ScraperCommand extends Command {
 	 * @return int
 	 */
 	public function handle() {
-		Log:info('Start Scraper');
+		Log:
+		info( 'Start Scraper' );
 
-		$client = new Client( HttpClient::create(
+		$products = [
+			'https://www.zalando.it/gabba-pisa-redue-pants-pantaloni-grey-check-g5022e00y-c11.html',
+			'https://www.zalando.it/kings-will-dream-bolo-smart-joggers-pantaloni-grey-kie22e011-c11.html',
+		];
+		$client   = new Client( HttpClient::create(
 			[ 'timeout' => 60 ]
 		) );
-		$crawler = $client->request('GET', 'https://www.zalando.it/uomo-home/');
-		$crawler->filter('h2')->each(function ($node) {
-			print $node->text()."\n";
-		});
+		foreach ( $products as $request ) {
+			$crawler = $client->request( 'GET', $request );
+			$crawler->filter( '#z-vegas-pdp-props' )->each( function ( $node ) {
+				$json = str_replace( "<![CDATA[", "", $node->text() );
+				$json = str_replace( "]]>", "", $json );
+				$obj =  json_decode( $json );
+				print  'Nome prodotto: ' . $obj->model->articleInfo->name . "\n";
+				print 'Marca prodotto: ' .$obj->model->articleInfo->brand->name . "\n";
+				print 'Prezzo prodotto: ' .$obj->model->articleInfo->displayPrice->price->formatted . "\n";
+			} );
+		}
 	}
 }
