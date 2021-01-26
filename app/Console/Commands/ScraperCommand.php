@@ -51,10 +51,10 @@ class ScraperCommand extends Command {
 			$crawler->filter( '#z-vegas-pdp-props' )->each( function ( $node ) {
 				$json = str_replace( "<![CDATA[", "", $node->text() );
 				$json = str_replace( "]]>", "", $json );
-				$obj =  json_decode( $json );
+				$obj  = json_decode( $json );
 				print  'Nome prodotto: ' . $obj->model->articleInfo->name . "\n";
-				print 'Marca prodotto: ' .$obj->model->articleInfo->brand->name . "\n";
-				print 'Prezzo prodotto: ' .$obj->model->articleInfo->displayPrice->price->formatted . "\n";
+				print 'Marca prodotto: ' . $obj->model->articleInfo->brand->name . "\n";
+				print 'Prezzo prodotto: ' . $obj->model->articleInfo->displayPrice->price->formatted . "\n";
 			} );
 		}
 	}
